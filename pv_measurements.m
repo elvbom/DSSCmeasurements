@@ -126,8 +126,8 @@ mW2_I = mW2_V./res;
 %4 majs
 
 %1:1 - en kvar
-m111_V = [366];
-m112_V = [150];
+%m111_V = [366];
+%m112_V = [150];
 %ngt ?r fel - oklart vad
 %m?ste ha f?rsk majs?
 %elektrolyten ?r f?r gammal?
@@ -163,59 +163,59 @@ m1013_I = m1013_V./res; %hade 52 m?tpukter - la till 2 589 i b?rjan
 figure
 subplot(5, 2, 1)
 plot(mY1_I, mY1_V, mY2_I, mY2_V, m113_I, m113_V)
-title('1st + 2nd maize 1.1')
+title('1st + 2nd maize 1:1')
 xlim([0 0.55])
 ylim([0 700])
-legend('Y1', 'Y2', '1.1')
+legend('Y1', 'Y2', '1:1')
 subplot(5, 2, 3)
 plot(m212_I, m212_V)
-title('2nd maize 2.1')
+title('2nd maize 2:1')
 xlim([0 0.55])
 ylim([0 700])
 %legend('Y1', 'Y2', '1.1')
 subplot(5, 2, 5)
 plot(mZ1_I, mZ1_V, mZ2_I, mZ2_V, m412_I, m412_V)
-title('1st + 2nd maize 4.1')
+title('1st + 2nd maize 4:1')
 xlim([0 0.55])
 ylim([0 700])
 legend('1Z', '2Z', '1')
 subplot(5, 2, 7)
 plot(m511_I, m511_V, m512_I, m512_V) %en f?r d?lig
-title('2nd maize 5.1')
+title('2nd maize 5:1')
 xlim([0 0.55])
 ylim([0 700])
 subplot(5, 2, 9)
 plot(m1011_I, m1011_V, m1012_I, m1012_V, m1013_I, m1013_V)
-title('2nd maize 10.1')
+title('2nd maize 10:1')
 xlim([0 0.55])
 ylim([0 700])
 subplot(5, 2, 2)
 plot(mX1_I, mX1_V, mX2_I, mX2_V)
-title('1st maize 1X 2X')
+title('1st maize X')
 xlim([0 0.55])
 ylim([0 700])
 legend('1', '2')
 subplot(5, 2, 4)
 plot(mY1_I, mY1_V, mY2_I, mY2_V)
-title('1st maie 1Y 2Y')
+title('1st maie Y')
 xlim([0 0.55])
 ylim([0 700])
 legend('1', '2')
 subplot(5, 2, 6)
 plot(mZ1_I, mZ1_V, mZ2_I, mZ2_V)
-title('1st maize 1Z 2Z')
+title('1st maize Z')
 xlim([0 0.55])
 ylim([0 700])
 legend('1', '2')
 subplot(5, 2, 8)
 plot(mV1_I, mV1_V, mV2_I, mV2_V)
-title('1st maize 1V 2V')
+title('1st maize V')
 xlim([0 0.55])
 ylim([0 700])
 legend('1', '2')
 subplot(5, 2, 10)
 plot(mW1_I, mW1_V, mW2_I, mW2_V)
-title('1st maize 1W 2W')
+title('1st maize W')
 xlim([0 0.55])
 ylim([0 700])
 legend('1', '2')
@@ -224,5 +224,11 @@ legend('1', '2')
 %airampo omgang 3 ---------------------------------------------------------
 %med polymerpapper
 
-a31_V = [];
+a31_V = [480 479 477 476 476 475 474 473 471 467 465 463 461 458 455 449 441 424 374 353 335 317 300 268 228 184 130 65.0 56.8 50.0 43.9 37.4 31.4 25.2 18.9 12.3 6.1 5.4 4.7 3.6 2.5 2.0 1.6 1.2 0.8 0.7 0.7 0.6 0.6 0.1 0.1 0.1 0 0 0];
 a31_I = a31_V./res;
+
+figure
+plot(aBprim1_I, aBprim1_V, aBprim2_I, aBprim2_V, a31_I, a31_V)
+title('2nd airampo Bprim Bpoly')
+xlim([0 0.55])
+legend('1', '2', 'poly')
