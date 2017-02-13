@@ -227,8 +227,10 @@ legend('1', '2')
 a31_V = [480 479 477 476 476 475 474 473 471 467 465 463 461 458 455 449 441 424 374 353 335 317 300 268 228 184 130 65.0 56.8 50.0 43.9 37.4 31.4 25.2 18.9 12.3 6.1 5.4 4.7 3.6 2.5 2.0 1.6 1.2 0.8 0.7 0.7 0.6 0.6 0.1 0.1 0.1 0 0 0];
 a31_I = a31_V./res;
 
-figure
-plot(aBprim1_I, aBprim1_V, aBprim2_I, aBprim2_V, a31_I, a31_V)
-title('2nd airampo Bprim Bpoly')
-xlim([0 0.55])
-legend('1', '2', 'poly')
+% figure
+% plot(aBprim1_I, aBprim1_V, aBprim2_I, aBprim2_V, a31_I, a31_V)
+% title('2nd airampo Bprim Bpoly')
+% xlim([0 0.55])
+% legend('1', '2', 'poly')
+
+
