@@ -260,14 +260,6 @@ mY1_P = mY1_V.*mY1_I;
 mY2_P = mY2_V.*mY2_I;
 mYs1_P = mYs1_V.*mYs1_I;
 mYs2_P = mYs2_V.*mYs2_I;
-m412_P = m412_V.*m412_I;
-mZ1_P = mZ1_V.*mZ1_I;
-mZ2_P = mZ2_V.*mZ2_I;
-m511_P = m511_V.*m511_I;
-m512_P = m512_V.*m512_I;
-m1011_P = m1011_V.*m1011_I;
-m1012_P = m1012_V.*m1012_I;
-m1013_P = m1013_V.*m1013_I;
 
 figure
 subplot(5, 1, 1)
@@ -283,18 +275,18 @@ xlim([0 0.55])
 ylim([0 700])
 legend('21', 'Y1', 'Y2', 'Ys1', 'Ys2')
 subplot(5, 1, 3)
-plot(m412_I, m412_P, mZ1_I, mZ1_P, mZ2_I, mZ2_P) 
+plot(m412_I, m412_V*m412_I, mZ1_I, mZ1_V*mZ1_I, mZ2_I*mZ2_I, mZ2_V*mZ2_V) 
 title('P 1st + 2nd maize 4:1')
 xlim([0 0.55])
 ylim([0 700])
 legend('1', '1Z', '2Z')
 subplot(5, 1, 4)
-plot(m511_I, m511_P, m512_I, m512_P) %en f?r d?lig
+plot(m511_I, m511_V*m511_I, m512_I, m512_V*m512_I) %en f?r d?lig
 title('P 2nd maize 5:1')
 xlim([0 0.55])
 ylim([0 700])
 subplot(5, 1, 5)
-plot(m1011_I, m1011_P, m1012_I, m1012_P, m1013_I, m1013_P)
+plot(m1011_I, m1011_V*m1011_I, m1012_I, m1012_V*m1012_I, m1013_I, m1013_V*m1013_I)
 title('P 2nd maize 10:1')
 xlim([0 0.55])
 ylim([0 700])
