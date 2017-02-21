@@ -338,6 +338,22 @@ xlim([0 0.55])
 ylim([0 200])
 legend('Pmax 103.1')
 
+
+%konc vs Pmax
+figure
+konc = 1:1:10;
+pmax_meas = zeros(1, 10);  %m matfel
+pmax_meas(1) = 89.49;
+pmax_meas(2) = 121.2;
+pmax_meas(4) = 113;
+pmax_meas(5) = 148.4;
+pmax_meas(10) = 163.4;
+pmax = pmax_meas;
+pmax(5) = 89.51;
+pmax(10) = 103.1;
+
+plot(konc, pmax_meas, '*-', konc, pmax, '*-');
+
 %airampo omgang 3 ---------------------------------------------------------
 %med polymerpapper
 
