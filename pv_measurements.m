@@ -183,10 +183,11 @@ m1013_P = m1013_V.*m1013_I;
 %27/2 -----------------------------------------------------
 %sista omgangen mata majs, bestamma konc
 %----------------------------------------------------------
+%4.3-5V i grund?
 
-m511_15_V = [];
-%m511_15_I = m511_15_V./res;
-%m511_15_P = m511_15_V.*m511_15_I;
+m511_15_V = [487 486 485 483 481 478 474 466 447 353 325 301 267 235 200 163 126 86 46 39 36 31 28 23 19 17 20 7.12 6.35 6.43 6.33 5.91 5.76 4.19 4.30 3.37 3.03 2.96 2.89 2.85 2.81 2.76 2.72 2.70 2.69 2.66 2.56 2.75 2.81 4.39 4.43];
+m511_15_I = m511_15_V./res;
+m511_15_P = m511_15_V.*m511_15_I;
 m512_15_V = [];
 %m512_15_I = m512_15_V./res;
 %m512_15_P = m512_15_V.*m512_15_I;
@@ -336,32 +337,44 @@ m2013_25_V = [];
 %m?tfel p? nr 29 (-30) motsvarar 899 Ohm
 %efficiency w/ measurement errors
 figure
-subplot(5, 1, 1)
+%1:1
+subplot(6, 1, 1)
 plot(m113_I, m113_P, mX1_I, mX1_P, mX2_I, mX2_P, mXs1_I, mXs1_P, mXs2_I, mXs2_P, '-*', [0 200], [89.49 89.49], 'k')
 title('P 1st + 2nd maize 1:1')
 xlim([0 0.55])
 ylim([0 200])
 legend('11', 'X1', 'X2', 'Xs1', 'Xs2', 'Pmax 89.49')
 ylabel('Efficiency P')
-subplot(5, 1, 2)
+%2:1
+subplot(6, 1, 2)
 plot(m212_I, m212_P, mY1_I, mY1_P,  '-*', mY2_I, mY2_P, mYs1_I, mYs1_P, mYs2_I, mYs2_P, '-*', [0 200], [169.9 169.9], 'k', [0 200], [121.2 121.2], 'k')
 title('P 2nd maize 2:1')
 xlim([0 0.55])
 ylim([0 200])
 legend('21', 'Y1', 'Y2', 'Ys1', 'Ys2', 'Pmax? 169.9', 'Pmax 121.2')
-subplot(5, 1, 3)
+%4:1
+subplot(6, 1, 3)
 plot(m412_I, m412_P, mZ1_I, mZ1_P, mZ2_I, mZ2_P, [0 200], [113 113], 'k') 
 title('P 1st + 2nd maize 4:1')
 xlim([0 0.55])
 ylim([0 200])
 legend('1', '1Z', '2Z', 'Pmax 113')
-subplot(5, 1, 4)
+%5:1
+subplot(6, 1, 4)
 plot(m511_I, m511_P, '-*', m512_I, m512_P, [0 200], [148.4 148.4], 'k', [0 200], [89.51 89.51], 'k') %en f?r d?lig
 title('P 2nd maize 5:1')
 xlim([0 0.55])
 ylim([0 200])
 legend('Pmax? 148.4', 'Pmax 89.51')
-subplot(5, 1, 5)
+%10:1
+subplot(6, 1, 5)
+plot(m1011_I, m1011_P, m1012_I, m1012_P, m1013_I, m1013_P,  '-*', [0 200], [163.4 163.4], 'k', [0 200], [103.1 103.1], 'k')
+title('P 2nd maize 10:1')
+xlim([0 0.55])
+ylim([0 200])
+legend('Pmax? 163.4', 'Pmax 103.1')
+%20:1
+subplot(6, 1, 6)
 plot(m1011_I, m1011_P, m1012_I, m1012_P, m1013_I, m1013_P,  '-*', [0 200], [163.4 163.4], 'k', [0 200], [103.1 103.1], 'k')
 title('P 2nd maize 10:1')
 xlim([0 0.55])
@@ -405,7 +418,7 @@ legend('Pmax 103.1')
 
 %konc vs Pmax
 figure
-konc = 1:1:10;
+konc = 1:1:20;
 pmax_meas = zeros(1, 10);  %m matfel
 pmax_meas(1) = 89.49;
 pmax_meas(2) = 121.2;
@@ -415,6 +428,8 @@ pmax_meas(10) = 163.4;
 pmax = pmax_meas;
 pmax(5) = 89.51;
 pmax(10) = 103.1;
+
+pmax3 = pmax_meas;
 
 plot(konc, pmax_meas, '*-', konc, pmax, '*-');
 
