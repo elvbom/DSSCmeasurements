@@ -1,6 +1,3 @@
-close all
-clear
-
 konc = 1:1:20;
 
 %konc vs Pmax

@@ -38,9 +38,6 @@ plot(m2011_25_I, m2011_25_V, m2012_25_I, m2012_25_V, m2013_25_I, m2013_25_V)
 xlim([0 0.15])
 title('I vs V')
 
-figure
-
-
 % %plotta alla sista matningen 3e
 % figure
 % %5:1

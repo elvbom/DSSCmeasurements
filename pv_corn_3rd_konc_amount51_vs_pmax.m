@@ -1,6 +1,3 @@
-clear
-close all
-
 konc = 1:1:20;
 corn_am = [0 5 10 15 20 25];
 am_51 = [NaN NaN NaN 15.53 10.56 18.05];
