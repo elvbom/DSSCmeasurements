@@ -19,10 +19,10 @@ aC2_I = aC2_V./res;
 aB1_I = aB1_V./res;
 aB3_I = aB3_V./res;
 
-% figure
-% plot(aC2_I, aC2_V, aB1_I, aB1_V, aB3_I, aB3_V);
-% legend('2C', '1B', '3B')
-% title('1st airampo 2C 1B 3B')
+figure
+plot(aC2_I, aC2_V, aB1_I, aB1_V, aB3_I, aB3_V);
+legend('2C', '1B', '3B')
+title('1st airampo 2C 1B 3B')
 
 
 %------------------------------------------------------------------------------------------------------
@@ -42,17 +42,17 @@ aCprim1_I = aCprim1_V./res;
 aCprim2_V = [562 562 445 444 442 429 412 413 400 395 381 377 375 370 372 365 360 354 343 292 278 266 255 237 217 185 141 80 73.6 66.0 58.8 50.3 41.8 33.6 25.6 16.8 8.3 7.5 6.6 5.6 4.8 4.0 3.1 2.4 1.5 0.7 0.6 0.5 0.5 0.4 0.3 0.2 0.1 0 0];
 aCprim2_V = aCprim2_V./res;
 
-% figure
-% subplot(2, 1, 1)
-% plot(aBprim1_I, aBprim1_V, aBprim2_I, aBprim2_V)
-% title('2nd airampo 1B 2B')
-% xlim([0 0.55])
-% legend('1', '2')
-% subplot(2, 1, 2)
-% plot(aCprim1_I, aCprim1_V, aCprim2_V, aCprim2_V)
-% title('2nd airampo 1C 2C')
-% xlim([0 0.55])
-% legend('1', '2')
+figure
+subplot(2, 1, 1)
+plot(aBprim1_I, aBprim1_V, aBprim2_I, aBprim2_V)
+title('2nd airampo 1B 2B')
+xlim([0 0.55])
+legend('1', '2')
+subplot(2, 1, 2)
+plot(aCprim1_I, aCprim1_V, aCprim2_V, aCprim2_V)
+title('2nd airampo 1C 2C')
+xlim([0 0.55])
+legend('1', '2')
 
 %------------------------------------------------------------------------------------------------------
 %------------------------------------------------------------------------------------------------------
@@ -63,12 +63,12 @@ aCprim2_V = aCprim2_V./res;
 
 a31_V = [480 479 477 476 476 475 474 473 471 467 465 463 461 458 455 449 441 424 374 353 335 317 300 268 228 184 130 65.0 56.8 50.0 43.9 37.4 31.4 25.2 18.9 12.3 6.1 5.4 4.7 3.6 2.5 2.0 1.6 1.2 0.8 0.7 0.7 0.6 0.6 0.1 0.1 0.1 0 0 0];
 a31_I = a31_V./res;
-
-% figure
-% plot(aBprim1_I, aBprim1_V, aBprim2_I, aBprim2_V, a31_I, a31_V)
-% title('2nd airampo Bprim Bpoly')
-% xlim([0 0.55])
-% legend('1', '2', 'poly')
+ 
+figure
+plot(aBprim1_I, aBprim1_V, aBprim2_I, aBprim2_V, a31_I, a31_V)
+title('2nd airampo Bprim Bpoly')
+xlim([0 0.55])
+legend('1', '2', 'poly')
 
 curr = 0:0.01:0.1;
 pmax = zeros(1, 11);
@@ -83,10 +83,10 @@ subplot(2, 1, 1)
 plot(a31_I, a31_V)
 title('Current I vs voltage V airampo optimal solution')
 xlabel('Current [mA]')
-ylabel('Voltage [mV]')
+ylabel('Voltage [mV]/Efficiency')
 subplot(2, 1, 2)
 plot(a31_I, a31_I.*a31_V, curr, pmax, '*')
 title('Current I vs efficiency P airampo optimal solution')
 xlabel('Current [mA]')
-ylabel('Voltage')
+ylabel('Efficiency')
 legend('Efficiency', 'Maximum efficiency Pmax: 15')
