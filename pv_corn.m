@@ -1,3 +1,11 @@
+% 1000 W/m^2
+% 
+% 
+% h?llare 2 cm - vatten 5.5 cm - lampa 1 cm
+% UIIX MR16+C
+% 12-50 V
+% opererar p? 20 V
+
 close all
 clear
 

@@ -2,7 +2,6 @@ clear
 close all
 
 %ipce = 1240 j/(Pin*lambda)
-sweep = 400:20:700;
 a = 0.5*0.5;
 
 %1
