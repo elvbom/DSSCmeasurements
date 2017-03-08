@@ -27,18 +27,22 @@ aj1 = ai1./a;
 al1 = [400 418 437 454 471 487 507 529 546 568 588 607 621 641 658 674 ];
 ap1 = [29.3 41.9 45.0 48.7 55.6 50.1 41.1 40.0 39.4 32.7 29.9 30.8 31.1 27.0 24.1 23.9];
 
-ipce_c1 = 1240*1e7*cj1./(cp1.*cl1);
-ipce_c2 = 1240*1e7*cj2./(cp2.*cl2);
-ipce_a1 = 1240*1e7*aj1./(ap1.*al1);
+ai2 = [6.5 5.5 4.7 4.2 3.5 2.7 2.2 2.3 2.1 1.7 1.2 1.1 0.9 0.6 0.5 0.6];
+aj2 = ai2./a;
+al2 = 400:20:700; %[];
+ap2 = ap1;
+
+ipce_c1 = 1240*cj1./(cp1.*cl1)*100;
+ipce_c2 = 1240*cj2./(cp2.*cl2)*100;
+ipce_a1 = 1240*aj1./(ap1.*al1)*100;
+ipce_a2 = 1240*aj2./(ap2.*al2)*100;
 
 figure
 subplot(2, 1, 1)
 plot(cl1, ipce_c1, cl2, ipce_c2)
 title('IPCE corn 20:1')
 xlabel('Wavelength [nm]')
-ylim([0 10e7])
 subplot(2, 1, 2)
-plot(al1, ipce_a1)
+plot(al1, ipce_a1, al2, ipce_a2)
 title('IPCE airampo 1:1')
 xlabel('Wavelength [nm]')
-ylim([0 10e7])
