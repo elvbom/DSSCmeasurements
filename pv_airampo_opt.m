@@ -57,6 +57,21 @@ ffy2 = [0 pmax2(2) pmax2(2)];
 ffx3 = [pmax3(1) pmax3(1) 0];
 ffy3 = [0 pmax3(2) pmax3(2)];
 
+% figure
+% subplot(2, 1, 1)
+% plot(oa1_I, oa1_V, 'm', ffx1, ffy1, 'm', oa2_I, oa2_V, 'k', ffx2, ffy2, 'k', oa3_I, oa3_V, 'b', ffx3, ffy3, 'b')
+% title('1:1 airampo: Current density vs voltage and fill factor')
+% xlabel('Current density [A/cm^2]')
+% ylabel('Voltage [V]')
+% legend('Current-voltage', 'Fill factor')
+% axis([0 0.3e-3 0 0.7])
+% subplot(2, 1, 2)
+% plot(oa1_I, oa1_P, 'm', oa2_I, oa2_P, 'k', oa3_I, oa3_P, 'b')
+% title('1:1 corn: current density vs efficiency')
+% xlabel('Current density [A/cm^2]')
+% ylabel('Efficiency')
+% axis([0 0.3e-3 0 1e-4])
+
 figure
 subplot(2, 1, 1)
 plot(oa1_I, oa1_V, ffx1, ffy1)
