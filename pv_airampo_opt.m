@@ -30,18 +30,32 @@ oa2_I = oa2_V./res./a;
 oa2_P = oa2_V.*oa2_I;
 
 %valdigt rod!
-oa3_V = [];
+%kontralelektrod kan vara fel - ge fel varden
+%maskingjorda glas kan bli behandlade ... ja vi vet inget
+%fargen konstig
+%lampan ar skev?
+%kablar?
+%resistansmaskinen?
+oa3_V = 1e-3.*[451 451 451 450 449 448 447 445 442 437 ...
+    433 429 427 425 422 417 410 396 360 ...
+    342 326 308 282 248 207 161 111 54.0 ...
+    48.4 43.0 37.5 32.3 26.9 21.6 16.2 10.7 5.3 ...
+    4.8 4.2 3.6 3.1 2.6 2.0 1.5 0.9 0.4 ...
+    0.3 0.3 0.2 0.2 0.1 0.1 0 0 0];
 oa3_I = oa3_V./res./a;
 oa3_P = oa3_V.*oa3_I;
 
 %x-y coordinates pmax
 pmax1 = [0.000175 0.35];
 pmax2 = [0.000168 0.336];
+pmax3 = [8.801e-5 0.308];
 
 ffx1 = [pmax1(1) pmax1(1) 0];
 ffy1 = [0 pmax1(2) pmax1(2)];
 ffx2 = [pmax2(1) pmax2(1) 0];
 ffy2 = [0 pmax2(2) pmax2(2)];
+ffx3 = [pmax3(1) pmax3(1) 0];
+ffy3 = [0 pmax3(2) pmax3(2)];
 
 figure
 subplot(2, 1, 1)
@@ -68,6 +82,21 @@ legend('Current-voltage', 'Fill factor')
 axis([0 0.3e-3 0 0.7])
 subplot(2, 1, 2)
 plot(oa2_I, oa2_P)
+title('1:1 airampo: current density vs efficiency')
+xlabel('Current density [A/cm^2]')
+ylabel('Efficiency')
+axis([0 0.3e-3 0 1e-4])
+
+figure
+subplot(2, 1, 1)
+plot(oa3_I, oa3_V, ffx3, ffy3)
+title('1:1 airampo: Current density vs voltage and fill factor')
+xlabel('Current density [A/cm^2]')
+ylabel('Voltage [V]')
+legend('Current-voltage', 'Fill factor')
+axis([0 0.3e-3 0 0.7])
+subplot(2, 1, 2)
+plot(oa3_I, oa3_P)
 title('1:1 airampo: current density vs efficiency')
 xlabel('Current density [A/cm^2]')
 ylabel('Efficiency')
