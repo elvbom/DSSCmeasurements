@@ -147,7 +147,7 @@ p2012(20) = 20.4;
 p2013(20) = 16.61;
 p_avg2(20) = (p2011(20)+p2012(20)+p2013(20))/3;
 
-konc2 = [0:1:20];
+konc2 = [0:1:21];
 pmax_led = -0.18862*konc2+104.09;
 pmax_oh = 0.8751*konc2+9.0783;
 %lagga till en till om 20 ar fel?
@@ -158,34 +158,87 @@ p_avg2_fit = 0.59671*konc2+9.5975;
 figure
 % x = fel?
 %alla pmax LED
-subplot(2, 2, 1)
-plot(konc, p111, 'x', konc, p112, 'x', konc, p113, '*', konc, p114, '*', konc, p115, '*', ...
-    konc, p211, '*', konc, p212, '*', konc, p213, 'x', konc, p214, 'x', konc, p215, '*', ...
-    konc, p411, '*', konc, p412, '*', konc, p413, '*', ...
-    konc, p511, '*', konc, p512, 'x', ...
-    konc, p1011, 'x', konc, p1012, '*', konc, p1013, '*')
-title('All Pmax LED')
-%alla pmax overhead
-subplot(2, 2, 2)
-%5:1 m = 15, r = 20 (suspect), c = 25
-plot(konc, p513, 'mx', konc, p514, 'm*', konc, p515, 'mx', ...
-    konc, p516, 'ro', konc, p517, 'ro', konc, p518, 'ro', ...
-    konc, p519, 'c*', konc, p5110, 'c*', konc, p5111, 'c*', ...
-    konc, p1014, '*', ...
-    konc, p2011, '*', konc, p2012, '*', konc, p2013, '*')
-title('All Pmax overhead')
-xlim([0 20])
+suptitle('Purple corn: maximum power output from different solvent concentrations with LED measurements\n')
+subplot(1, 2, 1)
+plot(konc, p113, '*b', konc, p111, 'xr', konc, p112, 'xr', konc, p114, '*b', konc, p115, '*b', ...
+    konc, p211, '*b', konc, p212, '*b', konc, p213, 'xr', konc, p214, 'xr', konc, p215, '*b', ...
+    konc, p411, '*b', konc, p412, '*b', konc, p413, '*b', ...
+    konc, p511, '*b', konc, p512, 'xr', ...
+    konc, p1011, 'xr', konc, p1012, '*b', konc, p1013, '*b')
+title('Maximum power output from LED measurements')
+ylabel('Maximum power output Pmax [W]')
+xlabel('Concentration x:1 [g]')
+xlim([0 11])
+legend('indicates assumed correct measurement', 'indicates assumed incorrent measurement')
+
 %hogsta pmax LED
-subplot(2, 2, 3)
+subplot(1, 2, 2)
 plot(konc, pmax, '*-', konc2, pmax_led)
-title('Max Pmax LED')
+title('Maximum power output per concentration from assumed correct LED measurements')
+ylabel('Maximum power output Pmax [W]')
+xlabel('Concentration x:1 [g]')
+legend('Experimental data', 'Fitted curve')
 ylim([0 200])
+xlim([0 11])
+
+am = 1:1:30;
+pa = am;
+for i = 1:30
+    pa(i) = NaN;
+end
+
+[p513a, p514a, p515a, p516a, p517a, p518a, p519a, p5110a, p5111a] = deal(pa);
+p513a(15) = p513(5);
+p514a(15) = p514(5);
+p515a(15) = p515(5);
+p516a(20) = p516(5);
+p517a(20) = p517(5);
+p518a(20) = p518(5);
+p519a(25) = p519(5);
+p5110a(25) = p5110(5);
+p5111a(25) = p5111(5);
+
+figure
+%5:1 m = 15, r = 20 (suspect), c = 25
+plot(am, p513a, 'mx', am, p514a, 'm*', am, p516a, 'ro', am, p519a, 'k*', am, p515a, 'mx', ...
+     am, p517a, 'ro', am, p518a, 'ro', ...
+     am, p5110a, 'k*', am, p5111a, 'k*')
+title('Purple corn: maximum power output from overhead measurements of solvent concentration 5:1 using different quantities of corn')
+ylabel('Maximum power output Pmax [W]')
+xlabel('Quantity of corn in solvent [g]')
+xlim([10 30])
+legend('15g assumed incorrect measurement', '15g assumed correct measurement', ...
+   '20g assumed contaminated cup', ...
+   '25g assumed correct measurement')
+
+figure
+suptitle('Maximum power output from different concentrations of purple corn with overhead measurements')
+%alla pmax overhead
+subplot(1, 2, 1)
+%5:1 m = 15, r = 20 (suspect), c = 25
+plot(konc, p514, 'b*', konc, p513, 'rx', konc, p516, 'ro', konc, p515, 'rx', ...
+      konc, p517, 'ro', konc, p518, 'ro', ...
+    konc, p519, 'b*', konc, p5110, 'b*', konc, p5111, 'b*', ...
+    konc, p1014, 'b*', ...
+    konc, p2011, 'b*', konc, p2012, 'b*', konc, p2013, 'b*')
+title('Maximum power output from overhead measurements')
+ylabel('Maximum power output Pmax [W]')
+xlabel('Concentration x:1 [g]')
+xlim([0 21])
+legend('assumed correct measurement', 'assumed incorrect measurement', ...
+    'from assumed contaminated cup')
+
 %hogsta pmax overhead, pmax2(5) ar avg
-subplot(2, 2, 4)
+subplot(1, 2, 2)
 plot(konc, pmax2, '-*', konc2, pmax_oh)
-title('Max Pmax overhead')
-xlim([0 20])
+title('Maximum power output per concentration from overhead measurements')
+ylabel('Maximum power output Pmax [W]')
+xlabel('Concentration x:1 [g]')
+legend('Experimental data', 'Fitted curve')
+xlim([0 21])
 ylim([0 30])
+
+
 %averages - inte jattebra satt att mata men ger ide
 %LED
 % subplot(3, 2, 5)
