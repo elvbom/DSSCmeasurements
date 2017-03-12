@@ -40,11 +40,13 @@ ipce_a1 = 1240*aj1./(ap1.*al1)*100;
 ipce_a2 = 1240*aj2./(ap2.*al2)*100;
 
 figure
-subplot(2, 1, 1)
+%subplot(2, 1, 1)
 plot(cl1, ipce_c1, cl2, ipce_c2)
-title('IPCE corn 20:1')
+title('Purple corn: IPCE for solvent concentration 20:1')
 xlabel('Wavelength [nm]')
-subplot(2, 1, 2)
-plot(al1, ipce_a1, al2, ipce_a2)
-title('IPCE airampo 1:1')
-xlabel('Wavelength [nm]')
+ylabel('Percentage [%]')
+legend('Measurement 1', 'Measurement 2')
+% subplot(2, 1, 2)
+% plot(al1, ipce_a1, al2, ipce_a2)
+% title('IPCE airampo 1:1')
+% xlabel('Wavelength [nm]')

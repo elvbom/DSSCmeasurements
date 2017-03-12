@@ -158,7 +158,7 @@ p_avg2_fit = 0.59671*konc2+9.5975;
 figure
 % x = fel?
 %alla pmax LED
-suptitle('Purple corn: maximum power output from different solvent concentrations with LED measurements\n')
+suptitle('Purple corn: maximum power output from different solvent concentrations with LED measurements')
 subplot(1, 2, 1)
 plot(konc, p113, '*b', konc, p111, 'xr', konc, p112, 'xr', konc, p114, '*b', konc, p115, '*b', ...
     konc, p211, '*b', konc, p212, '*b', konc, p213, 'xr', konc, p214, 'xr', konc, p215, '*b', ...
