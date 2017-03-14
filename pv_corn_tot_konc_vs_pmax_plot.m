@@ -17,15 +17,15 @@ end
 
 %1&2
 pmax = p;
-pmax(1) = 89.49;
-pmax(2) = 121.2;
-pmax(4) = 113;
-pmax(5) = 89.51;
-pmax(10) = 103.1;
+pmax(1) = 3.58;
+pmax(2) = 4.849;
+pmax(4) = 4.52;
+pmax(5) = 3.58;
+pmax(10) = 4.124;
 
 pmax_meas = pmax;
-pmax_meas(5) = 148.4;
-pmax_meas(10) = 163.4;
+pmax_meas(5) = 5.935;
+pmax_meas(10) = 6.535;
 
 %Pmax med overhead
 %5:1 :  15g     20g     25g
@@ -75,23 +75,29 @@ pmax_meas(10) = 163.4;
 
 %3
 corn_am = [0 5 10 15 20 25]; %alla 5:1
-am_51 = [NaN NaN NaN 15.53 10.56 18.05];
+am_51a = [NaN NaN NaN 0.9064 0.4225 0.7721];
+am_51b = [NaN NaN NaN 0.621 0.4225 0.7721];
 
 pmax15 = pmax;
-pmax15(5) = 15.53;  %fel?: 20.41
-pmax15(10) = 15.94;
-pmax15(20) = 27.21;
+pmax15(5) = 0.9064;  %fel?: 20.41
+pmax15(10) = 0.4225;
+pmax15(20) = 0.7721;
 
 pmax20 = pmax15;
-pmax20(5) = 10.56;
+pmax20(5) = 0.6376;
 
 pmax25 = pmax15;
-pmax25(5) = 18.05;
+pmax25(5) = 1.088;
 
 pmax2 = p;
 pmax2(5) = (pmax15(5)+pmax20(5)+pmax25(5))/3;
 pmax2(10) = pmax15(10);
 pmax2(20) = pmax15(20);
+
+pmax3 = p;
+pmax3(5) = 0.7221;
+pmax3(10) = 0.6376;
+pmax3(20) = 1.088;
 
 %alla pmax-punkter
 [p111, p112, p113, p114, p115, ...
@@ -102,54 +108,57 @@ pmax2(20) = pmax15(20);
     p2011, p2012, p2013, ...
     p_avg, p_avg2] = deal(p);
 
-p111(1) = 13.32; %fel
-p112(1) = 88.89; %fel?
-p113(1) = 59.66;
-p114(1) = 65.92;
-p115(1) = 89.49;
+p111(1) = 0.533; %fel
+p112(1) = 3.556; %fel?
+p113(1) = 2.387;
+p114(1) = 3.58;
+p115(1) = 2.637;
 p_avg(1) = (p113(1)+p114(1)+p115(1))/3;
 
-p211(2) = 63.1;
-p212(2) = 72.62;
-p213(2) = 126.9; %fel?
-p214(2) = 169.9; %fel?
-p215(2) = 121.2;
+p211(2) = 2.524;
+p212(2) = 2.905;
+p213(2) = 6.797; %fel?
+p214(2) = 5.075; %fel?
+p215(2) = 4.849;
 p_avg(2) = (p211(2)+p212(2)+p215(2))/3;
 
-p411(4) = 113;
-p412(4) = 94.34;
-p413(4) = 66.92;
+p411(4) = 4.52;
+p412(4) = 3.774;
+p413(4) = 2.677;
 p_avg(4) = (p411(4)+p412(4)+p413(4))/3;
 
-p511(5) = 89.51; 
-p512(5) = 148.4; %(fel?)
-p513(5) = 1.246; %(15g overhead)
-p514(5) = 15.53; %(dito)
-p515(5) = 22.66; %(dito, fel?)
-p516(5) = 10.56; %(20g overhead) - ngt fel m hela batchen?
-p517(5) = 8.822; %(dito)
-p518(5) = 7.489; %(dito)
-p519(5) = 14.29; %(25g overhead)
-p5110(5) = 18.05; %(dito)
-p5111(5) = 22.66; %(dito)
+p511(5) = 3.58; 
+p512(5) = 5.935; %(fel?)
+p513(5) = 0.621; %(15g overhead)
+p514(5) = 0.05263; %(dito, fel)
+p515(5) = 0.9064; %(dito, fel?)
+p516(5) = 0.4225; %(20g overhead) - ngt fel m hela batchen?
+p517(5) = 0.3529; %(dito)
+p518(5) = 0.2996; %(dito)
+p519(5) = 0.7221; %(25g overhead)
+p5110(5) = 0.5716; %(dito)
 p_avg(5) = p511(5);
 p_avg2(5) = (p513(5)+p514(5)+p516(5)+p517(5)+p518(5)+p519(5)+p5110(5)+p5111(5))/8;
 
-p1011(10) = 163.4; %(fel?)
-p1012(10) = 103.1;
-p1013(10) = 84.91;
-p1014(10) = 15.94; %(25g overhead)
+p1011(10) = 6.535; %(fel?)
+p1012(10) = 4.124;
+p1013(10) = 3.397;
+p1014(10) = 0.6376; %(25g overhead)
 p_avg(10) = (p1012(10)+p1013(10))/2;
 p_avg2(10) = p1014(10);
 
-p2011(20) = 27.21; %(25g overhead)
-p2012(20) = 20.4;
-p2013(20) = 16.61;
+p2011(20) = 1.088; %(25g overhead)
+p2012(20) = 0.8162;
+p2013(20) = 0.6646;
 p_avg2(20) = (p2011(20)+p2012(20)+p2013(20))/3;
 
 konc2 = [0:1:21];
-pmax_led = -0.18862*konc2+104.09;
-pmax_oh = 0.8751*konc2+9.0783;
+pmax_led = -0.007626*konc2+4.1642;
+pmax_am = -0.001019*corn_am+0.70253;
+pmax_oh = 0.027343*konc2+0.4969;
+
+pmax51a = -0.01343*[10:1:30]+0.96893;
+pmax51b = 0.01511*[10:1:30]+0.303;
 %lagga till en till om 20 ar fel?
 %fast varfor skulle den vara det?
 p_avg_fit = 1.9163*konc2+78.021;
@@ -169,6 +178,7 @@ title('Maximum power output from LED measurements')
 ylabel('Maximum power output Pmax [W]')
 xlabel('Concentration x:1 [g]')
 xlim([0 11])
+ylim([0 8])
 legend('indicates assumed correct measurement', 'indicates assumed incorrent measurement')
 
 %hogsta pmax LED
@@ -178,7 +188,7 @@ title('Maximum power output per concentration from assumed correct LED measureme
 ylabel('Maximum power output Pmax [W]')
 xlabel('Concentration x:1 [g]')
 legend('Experimental data', 'Fitted curve')
-ylim([0 200])
+ylim([0 8])
 xlim([0 11])
 
 am = 1:1:30;
@@ -199,36 +209,38 @@ p5110a(25) = p5110(5);
 p5111a(25) = p5111(5);
 
 %forts?tt h?r! 2 22.66?????
-pmax51 = pa;
-pmax51(15) = 22.66;
-pmax51(15) = 22.66;
-pmax51(15) = 22.66;
-pmax51_fitted = ;
+% pmax51 = pa;
+% pmax51(15) = 22.66;
+% pmax51(15) = 22.66;
+% pmax51(15) = 22.66;
+% pmax51_fitted = ;
 
 figure
 suptitle('Purple corn: maximum power output from overhead measurements of solvent concentration 5:1 using different quantities of corn')
 %5:1 m = 15, r = 20 (suspect), c = 25
 subplot(1, 2, 1)
-plot(am, p513a, 'mx', am, p514a, 'm*', am, p516a, 'ro', am, p519a, 'k*', am, p515a, 'mx', ...
+plot(am, p513a, 'b*', am, p514a, 'rx', am, p516a, ...
+    'ro', am, p519a, 'b*', am, p515a, 'rx', ...
      am, p517a, 'ro', am, p518a, 'ro', ...
-     am, p5110a, 'k*', am, p5111a, 'k*')
+     am, p5110a, 'b*', am, p5111a, 'b*')
 title('Maximum power output from overhead measurements')
 ylabel('Maximum power output Pmax [W]')
 xlabel('Quantity of corn in solvent [g]')
 xlim([10 30])
-legend('15g assumed incorrect measurement', '15g assumed correct measurement', ...
-   '20g assumed contaminated cup', ...
-   '25g assumed correct measurement')
+ylim([0 1.5])
+legend('assumed incorrect measurement', 'assumed correct measurement', ...
+   'assumed contaminated cup')
 
 %hogsta pmax overhead, pmax2(5) ar avg
 subplot(1, 2, 2)
-plot(konc, pmax2, '-*', konc2, pmax_oh)
+plot(corn_am, am_51a, '*-', ... % corn_am, am_51b, '*-m', ...
+    [10:1:30], pmax51a)%, 'c', [10:1:30], pmax51b, 'm')
 title('Maximum power output per concentration from overhead measurements')
 ylabel('Maximum power output Pmax [W]')
 xlabel('Concentration x:1 [g]')
 legend('Experimental data', 'Fitted curve')
-xlim([0 21])
-ylim([0 30])
+xlim([10 30])
+ylim([0 1.5])
 
 
 figure
@@ -245,18 +257,19 @@ title('Maximum power output from overhead measurements')
 ylabel('Maximum power output Pmax [W]')
 xlabel('Concentration x:1 [g]')
 xlim([0 21])
+ylim([0 1.5])
 legend('assumed correct measurement', 'assumed incorrect measurement', ...
     'from assumed contaminated cup')
 
 %hogsta pmax overhead, pmax2(5) ar avg
 subplot(1, 2, 2)
-plot(konc, pmax2, '-*', konc2, pmax_oh)
+plot(konc, pmax3, '-*', konc2, pmax_oh)
 title('Maximum power output per concentration from overhead measurements')
 ylabel('Maximum power output Pmax [W]')
 xlabel('Concentration x:1 [g]')
 legend('Experimental data', 'Fitted curve')
 xlim([0 21])
-ylim([0 30])
+ylim([0 1.5])
 
 
 %averages - inte jattebra satt att mata men ger ide
