@@ -198,18 +198,38 @@ p519a(25) = p519(5);
 p5110a(25) = p5110(5);
 p5111a(25) = p5111(5);
 
+%forts?tt h?r! 2 22.66?????
+pmax51 = pa;
+pmax51(15) = 22.66;
+pmax51(15) = 22.66;
+pmax51(15) = 22.66;
+pmax51_fitted = ;
+
 figure
+suptitle('Purple corn: maximum power output from overhead measurements of solvent concentration 5:1 using different quantities of corn')
 %5:1 m = 15, r = 20 (suspect), c = 25
+subplot(1, 2, 1)
 plot(am, p513a, 'mx', am, p514a, 'm*', am, p516a, 'ro', am, p519a, 'k*', am, p515a, 'mx', ...
      am, p517a, 'ro', am, p518a, 'ro', ...
      am, p5110a, 'k*', am, p5111a, 'k*')
-title('Purple corn: maximum power output from overhead measurements of solvent concentration 5:1 using different quantities of corn')
+title('Maximum power output from overhead measurements')
 ylabel('Maximum power output Pmax [W]')
 xlabel('Quantity of corn in solvent [g]')
 xlim([10 30])
 legend('15g assumed incorrect measurement', '15g assumed correct measurement', ...
    '20g assumed contaminated cup', ...
    '25g assumed correct measurement')
+
+%hogsta pmax overhead, pmax2(5) ar avg
+subplot(1, 2, 2)
+plot(konc, pmax2, '-*', konc2, pmax_oh)
+title('Maximum power output per concentration from overhead measurements')
+ylabel('Maximum power output Pmax [W]')
+xlabel('Concentration x:1 [g]')
+legend('Experimental data', 'Fitted curve')
+xlim([0 21])
+ylim([0 30])
+
 
 figure
 suptitle('Maximum power output from different concentrations of purple corn with overhead measurements')
